@@ -3,7 +3,7 @@
     <a-layout :style="{ background: '#fff' }">
       <a-layout-header class="header">
         <div class="page-title">
-          <router-link to="/">慕课乐高</router-link>
+          <router-link to="/">{{ projectName }}</router-link>
         </div>
         <!--        <user-profile :user="user"></user-profile>-->
       </a-layout-header>
@@ -17,7 +17,10 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useUserStore } from '@/stores'
+const { projectName } = useUserStore()
+</script>
 
 <style>
 .header {

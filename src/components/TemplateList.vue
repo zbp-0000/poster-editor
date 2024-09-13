@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-// import { TemplateProps } from "../store/templates";
+// import { TemplateProps } from "../stores/templates";
 interface IProps {
   list: any[]
 }

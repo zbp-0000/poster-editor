@@ -15,6 +15,7 @@ export const useUserStore = defineStore({
   state: () => ({
     name: 'Eduardo',
     isAdmin: true,
+    projectName: '海报生成器',
   }),
 
   actions: {
