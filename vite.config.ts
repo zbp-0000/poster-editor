@@ -20,4 +20,7 @@ export default defineConfig({
       '@': join(__dirname, 'src'),
     },
   },
+  server: {
+    open: true,
+  },
 })

@@ -1,17 +1,11 @@
 <template>
   <div class="content-container">
     <a-row :gutter="16">
-      <template-list :list="testData"></template-list>
+      <template-list :list="templateList"></template-list>
     </a-row>
     <a-row type="flex" justify="center">
-      <a-button
-        type="primary"
-        size="large"
-        @click="loadMorePage"
-        v-if="!isLastPage"
-        :loading="isLoading"
-        >加载更多</a-button
-      >
+      <a-button type="primary" size="large" @click="loadMorePage" v-if="!isLastPage"
+        :loading="isLoading">加载更多</a-button>
     </a-row>
   </div>
 </template>
@@ -19,12 +13,13 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import TemplateList from '../components/TemplateList.vue'
-const testData = ref<any[]>([{ id: 0, author: '张三', copiedCount: 1000 }])
+import { useUserStore } from '../stores'
+const { templateList } = useUserStore()
 const isLoading = ref(false)
 const { loadMorePage, isLastPage } = useLoadMore()
 function useLoadMore() {
   const isLastPage = ref(false)
-  const loadMorePage = async () => {}
+  const loadMorePage = async () => { }
   return {
     loadMorePage,
     isLastPage,
@@ -36,6 +31,7 @@ function useLoadMore() {
 .page-title {
   color: #fff;
 }
+
 .content-container {
   background: #fff;
   padding: 0 24px 24px 30px;
